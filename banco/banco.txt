@@ -1,0 +1,65 @@
+CREATE DATABASE mercado;
+USE mercado;
+
+CREATE TABLE produtos (
+	codigo CHAR(20) PRIMARY KEY NOT NULL,
+	nome VARCHAR(20) NOT NULL,
+	fornecedor 	VARCHAR(20),
+	preco DECIMAL(5,2) NOT NULL,
+	categoria VARCHAR(20),
+	foto VARCHAR(50)
+);
+
+INSERT INTO produtos VALUES (
+	8375949875, 'Chocolate Barra', 'Nestle', 5.20, 'Doces', 'chocolate.jpg'
+);
+
+INSERT INTO produtos VALUES (
+	3948590348, 'Banana da terra', NULL, 4.50, 'Frutas', 'banana.jpg'
+);
+
+INSERT INTO produtos VALUES (
+	9583904767, 'Manteiga sem gordura', 'Leco', 9.89, 'Matinais', 'manteiga.png'    
+);
+
+CREATE TABLE reposicao (
+	codigo INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	descricao VARCHAR(50) NOT NULL,
+	fornecedor VARCHAR(20),
+	valor DECIMAL(8, 2) NOT NULL,
+	data DATE NOT NULL,
+	status CHAR(1) NOT NULL
+);
+
+INSERT INTO reposicao VALUES (
+	0, '2.5 toneladas de banana', 'Jose', 5000, '2018-11-01', 'A'
+);
+
+INSERT INTO reposicao VALUES (
+	0, '3 mil caixas do leite da vaquinha', 'Piracanjuba', 999, '2018-11-02', 'E'
+);
+
+INSERT INTO reposicao VALUES (
+	0, '300 mil barras de chocolate da China', 'dealextreme.com', 5333.33, '2018-11-11', 'R'
+);
+
+CREATE TABLE caixa (
+	codigo INT AUTO_INCREMENT PRIMARY KEY,
+	data DATE NOT NULL,
+	total DECIMAL(6, 2) NOT NULL,
+	feijoadaBrinde BOOL NOT NULL,
+	formaPagamento CHAR(1) NOT NULL,
+	cpf VARCHAR(15)
+);
+
+INSERT INTO caixa VALUES (
+	0, '2018-11-05', 556.43, 1, 'C', '3891835613'
+);
+
+INSERT INTO caixa VALUES (
+	0, '2018-11-04', 128.40, 0, 'D', '8674083456'
+);
+
+INSERT INTO caixa VALUES (
+	0, '2018-11-01', 51.87, 0, 'D', '38947595476'
+);
